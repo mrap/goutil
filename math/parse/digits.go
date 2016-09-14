@@ -1,5 +1,7 @@
 package parse
 
+import "github.com/mrap/goutil/slices"
+
 func IntDigits(n int) []int {
 	if n == 0 {
 		return []int{0}
@@ -15,11 +17,6 @@ func IntDigits(n int) []int {
 		n /= 10
 	}
 
-	len := len(digits)
-	for i := 0; i < len/2; i++ {
-		j := len - 1 - i
-		digits[i], digits[j] = digits[j], digits[i]
-	}
-
+	slices.ReverseInts(digits)
 	return digits
 }
