@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"github.com/mrap/goutil/math/parse"
+	"github.com/mrap/goutil/pkgutil"
 )
 
 func TestIntDigits(t *testing.T) {
@@ -27,8 +28,8 @@ func TestIntDigits(t *testing.T) {
 
 	for _, c := range cases {
 		result := parse.IntDigits(c.in)
-		if !reflect.DeepEqual(result, c.out) {
-			t.Errorf("IntDigits(%d) => %v. Expected: %v", c.in, result, c.out)
+		if reflect.DeepEqual(result, c.out) {
+			t.Errorf(pkgutil.TestResult(result, c.out, "IntDigits(%d)", c.in))
 		}
 	}
 }

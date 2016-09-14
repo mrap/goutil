@@ -4,6 +4,7 @@ import (
 	"reflect"
 	"testing"
 
+	"github.com/mrap/goutil/pkgutil"
 	"github.com/mrap/goutil/slices"
 )
 
@@ -22,7 +23,7 @@ func TestIntsReverse(t *testing.T) {
 		in := c.in[:]
 		slices.ReverseInts(in)
 		if !reflect.DeepEqual(in, c.out) {
-			t.Errorf("ReverseInts(%d) => %v. Expected: %v", c.in, in, c.out)
+			t.Errorf(pkgutil.TestResult(in, c.out, "ReverseInts(%d)", c.in))
 		}
 	}
 }
