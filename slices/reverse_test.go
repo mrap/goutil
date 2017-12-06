@@ -27,3 +27,21 @@ func TestIntsReverse(t *testing.T) {
 		}
 	}
 }
+
+func TestReverseStrings(t *testing.T) {
+	cases := []struct {
+		in  []string
+		out []string
+	}{
+		{[]string{"a", "b", "c"}, []string{"c", "b", "a"}},
+		{[]string{"a"}, []string{"a"}},
+	}
+
+	for _, c := range cases {
+		in := c.in[:]
+		slices.ReverseStrings(in)
+		if !reflect.DeepEqual(in, c.out) {
+			t.Errorf(pkgutil.TestResult(in, c.out, "ReverseStrings(%s)", c.in))
+		}
+	}
+}
