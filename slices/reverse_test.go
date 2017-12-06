@@ -23,7 +23,7 @@ func TestIntsReverse(t *testing.T) {
 		in := c.in[:]
 		slices.ReverseInts(in)
 		if !reflect.DeepEqual(in, c.out) {
-			t.Errorf(pkgutil.TestResult(in, c.out, "ReverseInts(%d)", c.in))
+			t.Errorf(pkgutil.TestResult(in, c.out, "ReverseInts(%s)", c.in))
 		}
 	}
 }

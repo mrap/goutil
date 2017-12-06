@@ -28,7 +28,7 @@ func TestIntDigits(t *testing.T) {
 
 	for _, c := range cases {
 		result := parse.IntDigits(c.in)
-		if reflect.DeepEqual(result, c.out) {
+		if !reflect.DeepEqual(result, c.out) {
 			t.Errorf(pkgutil.TestResult(result, c.out, "IntDigits(%d)", c.in))
 		}
 	}
